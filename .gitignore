@@ -8,6 +8,12 @@ node_modules/
 .env.production
 backend/.env
 frontend/.env
+*.env
+**/.env
+
+# Deployment guides with credentials
+RAILWAY_DEPLOYMENT_STEPS.md
+QUICK_DEPLOY.txt
 
 # Build outputs
 dist/

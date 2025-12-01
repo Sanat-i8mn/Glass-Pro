@@ -3,9 +3,14 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import { createServer } from 'http';
 import { Server } from 'socket.io';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import connectDB from './config/db.js';
 import invoiceRoutes from './routes/invoiceRoutes.js';
 import customerRoutes from './routes/customerRoutes.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 dotenv.config();
 
@@ -63,9 +68,22 @@ app.set('io', io);
 app.use('/api/invoices', invoiceRoutes);
 app.use('/api/customers', customerRoutes);
 
-app.get('/', (req, res) => {
-  res.json({ message: 'Invoiceary API Running' });
-});
+// Serve frontend static files
+if (process.env.NODE_ENV === 'production') {
+  const frontendPath = path.join(__dirname, '../frontend/dist');
+  app.use(express.static(frontendPath));
+  
+  app.get('*', (req, res, next) => {
+    if (req.path.startsWith('/api')) {
+      return next();
+    }
+    res.sendFile(path.join(frontendPath, 'index.html'));
+  });
+} else {
+  app.get('/', (req, res) => {
+    res.json({ message: 'Invoiceary API Running' });
+  });
+}
 
 // Error handler
 app.use((err, req, res, next) => {

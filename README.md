@@ -203,32 +203,14 @@ invoiceary/
 
 ## 🚀 Deployment
 
-### Quick Deploy to Railway + Vercel
+### Deploy on Railway (Frontend + Backend Together)
 
-**Step 1: Push to GitHub**
-\`\`\`bash
-git init
-git add .
-git commit -m "Initial commit"
-git remote add origin https://github.com/Sanat-i8mn/Glass-Pro.git
-git push -u origin main
-\`\`\`
+1. Push code to GitHub
+2. Connect Railway to GitHub repo: `Sanat-i8mn/Glass-Pro`
+3. Add environment variables in Railway dashboard
+4. Railway auto-deploys both frontend and backend
 
-**Step 2: Deploy Backend on Railway**
-1. Go to https://railway.app
-2. New Project → Deploy from GitHub
-3. Select repository: `Sanat-i8mn/Glass-Pro`
-4. Add environment variables (see DEPLOYMENT_GUIDE.md)
-5. Generate domain and copy URL
-
-**Step 3: Deploy Frontend on Vercel**
-1. Go to https://vercel.com
-2. Import Git Repository
-3. Root Directory: `frontend`
-4. Add environment variable: `VITE_API_URL=<your-railway-url>/api`
-5. Deploy!
-
-**📖 Detailed Guide:** See [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md)
+**📖 Detailed Guide:** See [DEPLOYMENT.md](./DEPLOYMENT.md)
 
 ## 📝 License
 
