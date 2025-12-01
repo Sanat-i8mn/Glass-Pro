@@ -1,0 +1,145 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 17% 97%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+    --accent: 217 91% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 217 91% 60%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 217 91% 60%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 text-foreground font-inter antialiased;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .dark body {
+    @apply bg-black;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-poppins font-semibold;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg shadow-blue-500/50 transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:scale-[1.02] hover:-translate-y-1;
+  }
+
+  .glass-effect {
+    @apply bg-white/80 backdrop-blur-sm border border-white/20 shadow-xl;
+  }
+}
+
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+.font-inter {
+  font-family: 'Inter', sans-serif;
+}
+
+.glass-invoice-form .form-section {
+  @apply bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-blue-100 p-8 mb-6 transition-all duration-300 hover:shadow-2xl;
+}
+
+.dark .glass-invoice-form .form-section {
+  @apply bg-zinc-900/90 border-zinc-800;
+}
+
+.glass-invoice-form label {
+  @apply block text-sm font-semibold text-slate-700 dark:text-gray-200 mb-2;
+}
+
+.glass-invoice-form input,
+.glass-invoice-form textarea,
+.glass-invoice-form select {
+  @apply w-full border-2 border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-200 bg-white/50;
+}
+
+.dark .glass-invoice-form input,
+.dark .glass-invoice-form textarea,
+.dark .glass-invoice-form select {
+  @apply border-zinc-700 bg-zinc-800/80 text-white placeholder:text-gray-400;
+}
+
+.dark .glass-invoice-form input:hover,
+.dark .glass-invoice-form textarea:hover,
+.dark .glass-invoice-form select:hover {
+  @apply border-blue-500 bg-zinc-800;
+}
+
+.glass-invoice-form input:hover,
+.glass-invoice-form textarea:hover,
+.glass-invoice-form select:hover {
+  @apply border-blue-300 bg-white;
+}
+
+.glass-invoice-form .input-group {
+  @apply mb-5;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #invoice-preview, #invoice-preview * {
+    visibility: visible;
+  }
+  #invoice-preview {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
