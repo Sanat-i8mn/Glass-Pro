@@ -1,0 +1,66 @@
+╔══════════════════════════════════════════════════════════════╗
+║     GLASS INVOICE GENIE - RAILWAY DEPLOYMENT SETUP          ║
+╚══════════════════════════════════════════════════════════════╝
+
+✅ SECURITY FIXED!
+   - Credentials removed from GitHub
+   - MongoDB credentials secured
+   - Ready for safe deployment
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚂 RAILWAY DEPLOYMENT (Frontend + Backend Together)
+
+Step 1: Railway Dashboard
+   → https://railway.app/dashboard
+   → New Project → Deploy from GitHub
+   → Select: Sanat-i8mn/Glass-Pro
+
+Step 2: Environment Variables
+   Click "Variables" tab and add:
+
+   PORT=5000
+   MONGODB_URI=<get-from-mongodb-atlas>
+   JWT_SECRET=<create-random-secret>
+   JWT_EXPIRE=7d
+   NODE_ENV=production
+
+Step 3: Deploy
+   → Railway will automatically:
+     ✓ Install backend dependencies
+     ✓ Install frontend dependencies
+     ✓ Build frontend
+     ✓ Start backend server
+     ✓ Serve frontend from backend
+
+Step 4: Get Your URL
+   → Settings → Generate Domain
+   → Copy URL: https://your-app.railway.app
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔐 MONGODB ATLAS SECURITY
+
+1. Go to: https://cloud.mongodb.com
+2. Database Access → Change Password
+3. Copy NEW connection string
+4. Update in Railway Variables
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ TESTING
+
+Your App: https://your-app.railway.app/
+API Test: https://your-app.railway.app/api/invoices
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💡 BENEFITS OF THIS SETUP
+
+✓ Single deployment (no separate frontend/backend)
+✓ One URL for everything
+✓ Automatic HTTPS
+✓ Free tier available
+✓ Auto-deploy on git push
+
+╚══════════════════════════════════════════════════════════════╝
